@@ -1,0 +1,371 @@
+\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[left=1.62cm,right=1.62cm,top=1.9cm]{geometry}
+\setlength{\columnsep}{0.24 in}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\title{System Development using Eye Blink Sensors: A Survey}
+
+\author{
+\centering
+\IEEEauthorblockN{Ishaan Kapoor}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani Goa Campus}\\
+Goa, INDIA \\
+f20212091@goa.bits-pilani.ac.in}
+\and
+\centering
+\IEEEauthorblockN{Hridya Arora}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani Goa Campus}\\
+Goa, INDIA \\
+f20212538@goa.bits-pilani.ac.in}
+\and
+\centering
+\IEEEauthorblockN{Vedant Shete}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani Goa Campus}\\
+Goa, INDIA \\
+f20210002@goa.bits-pilani.ac.in}
+\and
+\centering
+\hspace{1cm}\IEEEauthorblockN{Vilakshan Gupta}
+\IEEEauthorblockA{\hspace{1cm}\textit{CSIS Department} \\
+\hspace{1.2cm}\textit{BITS Pilani Goa Campus}\\
+\hspace{1cm} Goa, INDIA \\
+\hspace{1.2cm} f20212075@goa.bits-pilani.ac.in}
+\and
+\centering
+\IEEEauthorblockN{Chandra Shekar R K}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani, Pilani Campus}\\
+Pilani, INDIA \\
+chandrashekar.rk@pilani.bits-pilani.ac.in}
+\and
+\centering
+\IEEEauthorblockN{Shubhangi Gawali}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani Goa Campus}\\
+Goa, INDIA \\
+Shubhangi@goa.bits-pilani.ac.in}
+\linebreak
+\and
+\hspace{4cm}
+\IEEEauthorblockN{Neena Goveas}
+\IEEEauthorblockA{\hspace{4cm}\textit{CSIS Department} \\
+\hspace{4cm}\textit{BITS Pilani Goa Campus}\\
+\hspace{4cm} Goa, INDIA \\
+\hspace{4cm} neena@goa.bits-pilani.ac.in}
+\and
+\IEEEauthorblockN{Lucy J. Gudino}
+\IEEEauthorblockA{\textit{CSIS Department} \\
+\textit{BITS Pilani, Pilani Campus}\\
+Pilani, INDIA \\
+lucy.gudino@pilani.bits-pilani.ac.in}
+}
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+Systems developed using eye blink sensors have gained attention in recent years due to their diverse applications in many fields, ranging from healthcare to human-computer interaction. This survey aims to provide an overview of the existing research on eye blink sensor based systems. It explores the advancements, methodologies, and challenges associated with eye blink sensing technology. Hardware based techniques have been traditionally used in clinical settings which required trained professionals to perform measurements. Recent developments in hardware techniques have resulted in easy to use and interface systems which can actuate real time response. AI based developments are also set to accelerate innovative solutions with faster analysis of video feeds. 
+eye blink based systems are
+expected to affect many aspects of people's lives, bringing about
+many conveniences and safety. However, eye blink is a very individual response which is subject to physiological and environmental effects. Incorporating individual response, latency requirements and data-sensitive protection is a must before eye blink systems can be safely used. There are potential undesirable consequences if privacy and ethical considerations are not inbuilt in the systems using eye blink base systems. In this work we look at the technology being used and the application fields where there is  potential for useful system development.
+This survey focuses on the systems and applications developed with eye blink sensors for monitoring of individuals.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Eye blink, HCI, Eye health, 
+\end{IEEEkeywords}
+
+\section{Introduction}
+Eyeblink sensors, also known as blink detection sensors or eye tracking systems, are devices or technologies that monitor and analyze the blinking patterns of individuals. The systems developed using these sensors capture and measure the frequency, duration, and intensity of eye blinks. They typically utilize various methods to detect eye blinks, such as optical sensors, electrodes, or infrared cameras.
+%Several types of eye blink sensors are used to detect and measure blinking patterns in individuals. These sensors employ different technologies and methods to capture and analyse eye blink data. Optical sensors use light-based techniques to detect eye blinks. They typically emit infrared light and measure its reflection or absorption by the eyes. These sensors can detect changes in light patterns caused by eyelid movement during blinking. Electrode-based sensors involve placing electrodes near the eyes or on the eyelids to measure electrical signals generated during blinking. These sensors can detect muscle activity and electrical impulses associated with eye blinks. Capacitive sensors measure changes in capacitance caused by the proximity of objects, such as eyelids, to the sensor surface. By placing capacitive sensors near the eyes, they can detect the presence and movement of eyelids during blinking. Piezoelectric sensors utilise the piezoelectric effect, where certain materials utilise electrical charge in response to mechanical stress. These sensors can detect mechanical changes in the sensor surface caused by eyelid movement during blinking. EOG sensors measure the electrical potential difference between the cornea and the skin around the eyes. EOG sensors can detect eye movements, including blinks, by placing electrodes near the eyes. Video-based eye blink sensors utilise cameras, typically infrared or high-speed cameras, utilised eye movements and detect blinks. Computer vision algorithms are then applied to analyse the video data and identify blink events. Infrared analyses detect infrared radiation emitted by the eyes. They can capture changes in infrared radiation caused by eyelid movement during blinking.
+
+Depending on the kind of applications being developed, systems are developed with appropriate sensor selection. The requirements could include the accuracy needed, the desired level of invasiveness or non-invasiveness, the environment in which the systems operate etc.
+The significance of systems using eye blink sensors spans multiple domains due to their capacity to offer valuable insights into human behaviour, cognitive processes, and interactions. In this survey we look at the systems being developed using eye blink sensors and their uses.
+
+The rest of this paper is organised as follows.
+ Section II describes the fields in which applications using blink sensors have been used. In section III, eye blink detection technology is detailed. Section IV details some of  the challenges and limitations of the research using eye blink sensors. Section V gives some of the emerging trends and future directions in which system development with blink sensors are being proposed. Section VI details some ethical considerations and privacy concerns and finally, in Section VII we conclude our survey.
+
+
+\section{Fields of Application}
+Systems have been developes using eye blink sensors in many domains. A few important ones are described in this section.
+
+\subsection{Human-Computer Interaction (HCI)}
+Eyeblink sensors play a crucial role in HCI by enabling natural and intuitive interaction between humans and computers. They can be used as input devices to control computer interfaces, allowing users to perform actions such as scrolling, clicking, or navigating through menus by blinking. This technology enhances accessibility and provides alternative input methods, particularly for individuals with physical disabilities  \cite{hci}.
+
+\subsection{Cognitive Load Assessment}
+Eyeblink sensors are employed to measure cognitive load, which refers to the mental effort or processing demands placed on individuals during tasks. By monitoring blink patterns, researchers can infer cognitive load levels, helping to understand the mental workload associated with various activities. This information is valuable in fields such as education, training, and workplace settings, where optimising task design and workload management can improve performance and well-being \cite{blink rate from postural behaviour}.
+
+\subsection{Fatigue and Drowsiness Detection}
+    Eyeblink sensors are utilised in fatigue and drowsiness detection systems. Monitoring blink frequency and duration can provide insights into an individual's alertness level.  These sensors can be used in applications such as driver drowsiness detection, workplace safety monitoring, or medical settings to prevent accidents and promote well-being by detecting patterns associated with drowsiness or fatigue \cite{fatigue} \cite{drowsiness detection} \cite{sleep apnoea}. Table 1 shows a table of parameters used to detect drowsiness in drivers. 
+\begin{table}[bfdriver]
+\caption{Blink frequency as a determinant for driver drowsiness}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Serial & & \multicolumn{2}{|c|}{Frequency} & \multicolumn{2}{|c|}{Driving State} \\
+% \textbf{Serial}&\textbf{}&\multicolumn{2}{|c|}{\textbf{Frequency}} &\multicolumn{2}{|c|}{\textbf{Driving State}} \\
+\cline{3-6}
+Number & PERCLOS & Blink & Yawn & Actual & Predicted \\
+\hline
+1 & 0.35 & 22.4 & 0 & Fatigued & Fatigued \\
+2 & 0.51 & 15.6 & 1.5 & Fatigued & Fatigued \\
+3 & 0.29 & 18.4 & 3.0 & Fatigued & Fatigued \\
+4 & 0.21 & 14.2 & 3.0 & Normal & Fatigued \\
+5 & 0.48 & 24.0 & 1.5 & Fatigued & Fatigued \\
+6 & 0.24 & 10.5 & 0 & Normal & Normal \\
+7 & 0.34 & 21.5 & 4.5 & Fatigued & Fatigued \\
+8 & 0.58 & 18.2 & 6.0 & Fatigued & Fatigued \\
+9 & 0.21 & 11.8 & 0 & Normal & Normal \\
+10 & 0.50 & 24.3 & 4.5 & Fatigued & Fatigued \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Neuroscience and Psychology Research}
+Eyeblink sensors are extensively used in neuroscience and psychology research to study various aspects of human cognition, attention, and emotional states. Blink patterns can reveal information about cognitive processes, including attention shifts, information processing, and the modulation of emotional responses. Researchers use these sensors to investigate disorders, explore cognitive phenomena, and understand brain functioning in both healthy and clinical populations.
+
+\subsection{User Experience (UX) and Advertising}
+Eyeblink sensors find applications in UX research and advertising to gain insights into users' attention, engagement, and emotional responses. Researchers can assess the effectiveness of designs and measure user engagement by analysing blink patterns during exposure to stimuli such as websites, products, or advertisements. This information helps optimise user interfaces, marketing strategies, and create more impactful advertising campaigns \cite {iot} \cite{blink patterns}.
+
+\subsection{Gaming and Virtual Reality (VR)}
+Eyeblink sensors are integrated into gaming and VR systems to enhance user immersion and interaction. These sensors enable eye tracking by tracking eye movements and blinks, allowing for more realistic and intuitive gameplay experiences. Eyeblink sensors in gaming and VR can be used for gaze-based interaction, graphics rendering optimisation, and creating immersive virtual environments \cite{gaming and VR}.
+
+\subsection{Applications in Healthcare}
+Eyeblink sensors find many applications in healthcare, particularly in monitoring fatigue and diagnosing various neurological disorders. By analyzing blink patterns, these sensors offer valuable insights into individuals' cognitive states, enabling better understanding and management of their well-being. In healthcare settings, these sensors hold the potential to revolutionize the way fatigue is assessed and to aid in the early detection of neurological conditions, ultimately contributing to improved patient care and quality of life \cite{Nih}.
+
+
+\section{Eye Blink Detection Techniques}
+
+The realm of eye blink detection techniques stands at the confluence of technological advancement and the intricate nuances of human physiology. With eye blinks offering insights into cognitive and health-related dimensions, their accurate detection holds paramount importance across a wide array of applications. The pursuit of comprehending the dynamics of blinks has led researchers and engineers to explore a dual path encompassing both software and hardware-based approaches. While software techniques employ intricate algorithms to dissect visual data, hardware methods directly interface with physiological signals. This in-depth exploration into the techniques for eye blink detection unveils a diverse spectrum of methodologies that collectively contribute to understanding this deceptively simple yet profoundly complex human action. From sophisticated software algorithms to ingenious sensor-based solutions, the domain of blink detection reveals a realm of possibilities that transcend conventional boundaries.
+
+\subsection{Hardware techniques}
+This section explores hardware techniques for eye blink detection, revealing inventive approaches that directly interface with physiological signals to unveil the complexities of blinking dynamics. Through the exploration of hardware methodologies, new insights and possibilities emerge, offering a comprehensive perspective on the intricate world of blink-sensing technology. There are three prominent hardware techniques used for eye blink detection: Doppler Sensor, Electro-encephalography (EEG), and Electro-oculography (EOG).
+
+\subsubsection{Doppler Sensor}
+The utilization of Doppler sensors for detecting human eye blinking marks a novel advancement. By capitalizing on the Doppler effect, these sensors emit radio frequency waves directed towards the eye area, effectively capturing the distinct Doppler signature generated as a result of eyelid movement during blinking. This analysis further highlights the ability of Doppler sensors to distinguish between blinks that occur spontaneously and those that are intentional. Achieving this differentiation is facilitated through the application of principal component analysis, enabling the extraction of key features. The resultant coefficients obtained from this process hold promise for successful classification, ultimately highlighting the efficacy of Doppler sensors in accurately detecting eye blinks even in the presence of ambient human motion-related noise \cite{Eye blink using Doppler sensor} \cite{doppler2}.
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{doppler1.png}}
+\caption{Comparing precision of the doppler sensor for blink detection \cite {IoT based blink detection}}
+\label{fig1}
+\end{figure}
+\subsubsection{Electro-encephalography(EEG)}
+It has emerged as a powerful hardware technique to detect eye blinks by recording electrical brain activity. EEG involves placing electrodes on the scalp to capture the brain's electrical signals generated by neural activity. During an eye blink, specific brain regions associated with eyelid movement exhibit distinct electrical patterns. By analyzing these patterns, EEG can accurately identify blinks. However, EEG-based blink detection is sensitive to various artefacts and requires advanced signal processing techniques to extract meaningful blink information from the recorded brainwave data \cite {EEG2}.
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{eeg1.png}}
+\caption{  Separation of eye blinks from raw EEG signal \cite {EEG}}
+\label{fig2}
+\end{figure}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{eeg2.png}}
+\caption{ Close look of a section of signals presented in Fig. 1 \cite {EEG}}
+\label{fig3}
+\end{figure}
+\subsubsection{Electro-oculggraphy(EOG)}
+It is a widely adopted hardware technique that directly measures the electrical potential generated by eye movements and blinks. EOG sensors are strategically positioned around the eyes to capture the changes in potential as the eyes move. When a blink occurs, the eyelids' motion generates a characteristic electrical signal captured by the EOG sensors. These signals are then processed to determine the timing and duration of blinks. EOG-based blink detection offers a non-intrusive and reliable method for various applications, including sleep studies and driver fatigue monitoring \cite {EOG} \cite{eye blink duration by regression}.
+\subsubsection{Infrared based sensing}
+An infrared based device has been developed by researchers at Microsoft. This system can be mounted on a regular eye glass frames \cite{Microsoft}. This device is easy to use and can measure blink rates and can be further modified to have actuation done to encourage more blinking. This can be used as a solution to dry eye problem in many individuals. The disadvantage of this techniques is the possibility of interference dues to ambient light sources.
+
+\subsubsection{Flexible Iontronic Sensing (FITS)}
+In this technique,  skin pressure variations induced by movements of the a muscle around the eye, the orbicularis oculi muscles can be monitored \cite{Nih}. With an advantage of no interference due to ligting and other environmental effects. This is a system which can give results in real time. 
+
+
+\subsection{Software techniques}
+The easiest way to collect the most data is through a video of the subject captured from a distance. Scientists have designed algorithms to detect blinks from pre-recorded videos. The same algorithms can also be used for live footage but with some delay. The most popular blink detection and counting algorithms are CAMshift, Contour Extraction, Median Blur Filtering and Arc Extraction.
+
+\subsubsection{CAMshift}
+Continuously Adaptive Meanshift (or CAMshift in short) provides more accuracy and robustness than the classical meanshift algorithm.
+
+In the Meanshift algorithm, every instance of the video is checked in the form of pixel distribution in that frame. Initially, we define a window and specify its position to cover the area of maximum pixel distribution. The windows then try to keep track of that area in the video. (When the video is playing, our tracking window also moves toward the region of maximum pixel distribution). Meanshift is a handy method to keep track of a particular object inside a video and separate the static background of a video from the moving foreground object. A drawback of the Meashift technique is that the tracking window size remains the same, irrespective of the object's distance from the camera. Also, the initial window position must be chosen with the utmost care, as it will only track the object when it is in the region of the window \cite{meanShift}.
+
+CAMshift resolves at least one of the problems with the Meanshift algorithm. The window size keeps on updating when the tracking window tries to converge. The modified algorithm provides the best-fitting tracking window by applying Meanshift first and updating the window size immediately after. Best fitting ellipse is then calculated, and Meanshift is applied to the newly scaled and previous windows. This process is repeated till the desired accuracy is achieved.
+
+
+\subsubsection{Contour Extraction}
+
+In this technique, a set of sixteen landmarks are created at regular intervals to outline the contour of the eye. Eight points are used to represent each eye. Out of the total 120, we only need two distance measures to guess the state of the eye: the distance between the highest and lowest landmarks and that between the two centroids of both eyes. Their ratio is used to determine whether the eye is closed or open. As per the experiments of Dr B. Gabor Filter,  the value of this ratio being greater than 0.157 implies that the eye is open, and the value being less than 0.017 means that the eye is closed. The technique is less widely used due to the vast grey area it misses out on.
+
+\subsubsection{Median Blur Filtering}
+
+An image of the eye is extracted from the video frame, and a median blur filter is applied to it. The median filter is a non-linear digital filtering technique that removes noise from an image. Since it preserves edges while removing noise, it is a perfect fit for our use. The filter runs pixel by pixel, replacing each with the median of neighbouring pixels (called a window). The window, which slides over the entire frame, must include all entries within a given radius or ellipsoidal region of the selected pixel.
+The resultant image obtained after applying the filtering shows a clear difference between the open and the closed eye and hence helps in identifying eye blinks.
+
+
+\subsubsection{Arc Extraction}
+
+First, the eye region is extracted from the whole frame, and then arcs of the eye are identified using Gabor Filter. The Gabor filter is a linear filter used for texture analysis. Its ability to extract spatial localized spectral features, e.g., arcs and lines, makes it the perfect fit for our use. It analyzes specific frequency content in particular directions in a localized region around the analysis point, which is very similar to how we humans see.
+Then Connected Component Labeling method is used to create a labelled image in which the positions associated with the same connected component of the input frame have a unique label. CCL helps detect the top and bottom arcs. And the distance between these arcs is measured to determine the blinking.
+
+
+\section{Challenges and Limitations}
+
+In the realm of eye blink sensors, a host of challenges and limitations shape the landscape of the systems developed using them. These considerations collectively influence how researchers, developers, and practitioners harness this technology for various purposes.
+
+ Achieving high accuracy in blink detection, particularly in real-world scenarios, is often hindered by factors such as lighting fluctuations, individual variability in blink patterns, and the presence of noise or artefacts. These factors introduce variability, which can compromise the reliability of detection algorithms. For real-time applications, latency is important for example in  Driver drowsiness detection and human-computer interaction. The delay often arises due to the computational load which can be minimised by using optimized algorithms.
+
+ Factors like sensor size, cost, and wearability must align with specific application requirements. User Comfort and Acceptance become vital in this context. Existing technologies may not always prioritize user comfort, potentially hindering long-term use. Device design should focus on non-invasiveness and ergonomic considerations to ensure user acceptance and compliance.
+
+Calibration is essential to ensure precise sensor setup and accurate data collection. Yet, individuals exhibit unique blink patterns, necessitating tailored detection algorithms to accommodate these variations.  It necessitates collaboration between experts in various fields, including engineering, psychology, medicine, and data science. 
+
+Data Interpretation and Context represent the culmination of challenges. Interpreting blink data within the context of an application can be intricate. Distinguishing between voluntary and involuntary blinks or understanding the nuanced meaning of a blink in a specific situation presents unique challenges that require further exploration, especially in high-stress situations where reliability assumes paramount importance.
+
+\section{Emerging Trends and Future Directions}
+
+The evolution of eye blink sensors is steering the technology towards innovative system development. The shrinking form factor of eye blink sensors is a glimpse into the future. As sensors become smaller, more comfortable, and less obtrusive, they open doors to continuous blink pattern monitoring without intruding on daily activities. 
+
+The fusion of blink data with other physiological signals, such as heart rate, skin conductance, or brainwave data, marks a growing trend. This amalgamation offers a more comprehensive view of an individual's cognitive and emotional state. The potential applications span healthcare, psychology, and human-computer interaction.
+
+Integrating artificial intelligence and machine learning promises to elevate the accuracy of blink detection. AI algorithms can adapt to the idiosyncrasies of individual blink patterns, refine noise filtering, and offer real-time analysis. This development holds immense potential for applications demanding precise and robust blink detection.
+
+As the field advances, the importance of data privacy and ethical considerations grows. Robust data anonymization, secure storage, and transparent data handling practices are essential to address privacy concerns. Ethical frameworks will continue to evolve in tandem with technological progress.
+
+Collaboration across diverse fields spanning engineering, psychology, medicine, and data science, will become increasingly crucial. Such interdisciplinary cooperation will drive innovation, ensuring that blink sensor technology aligns seamlessly with the evolving needs of various domains.
+
+Personalization is becoming central to eye blink sensor applications. Systems that adapt to an individual's blink patterns and cognitive responses are enhancing user experiences, particularly in educational, training, and rehabilitation settings.
+
+The integration of blink sensors into human-robot interaction and assistive technologies is a burgeoning field. Blink-based control interfaces empower individuals with disabilities, granting them intuitive control over smart devices and enhancing their quality of life.
+
+Anticipating hardware advancements on the horizon. Sensor technology is expected to undergo improvements in terms of miniaturization, sensitivity, and energy efficiency. These developments will further catalyze the adoption of blink sensors across diverse applications.
+
+Augmented and virtual reality (AR/VR) technologies are incorporating eye tracking and blink sensors to enrich user experiences. Accurate gaze tracking and blink-based interactions are poised to revolutionize gaming, training, and simulation environments.
+
+In this ever-evolving landscape, the interplay of technology, data science, and interdisciplinary collaboration is poised to unlock new realms of understanding human behaviour, cognition, and health. Researchers, developers, and practitioners in the blink sensor domain stand at the forefront of these transformations, holding the potential to make profound contributions to science, healthcare, and technology.
+
+
+\section{Ethical Considerations and Privacy Concerns}
+In pursuing advancing eye blink detection technology, it is imperative to navigate a complex landscape of ethical considerations and privacy concerns. This journey begins with the cornerstone of informed consent, especially in research and medical applications. Obtaining explicit consent from participants or patients is not just a legal requirement but a fundamental ethical principle. Individuals must be fully aware of how their blink data will be collected, stored, and used, with the option to decline participation.
+
+Once data collection begins, a paramount concern is data privacy and security. Whether harnessed through hardware sensors or sophisticated software algorithms, blink data inherently embodies personal information. Robust measures such as data encryption, secure storage, and stringent access controls are essential to prevent unauthorized access or the unfortunate possibility of data breaches. Here, the anonymization or pseudonymization of blink data assumes significance in shielding the individuals' identities.
+
+Yet, ethical considerations extend beyond research and medical contexts. In user experience (UX) research and advertising, individuals might not always be aware that their blink data is being meticulously collected and analyzed to gauge engagement or emotional responses. Ethical practice necessitates clear and transparent consent mechanisms that apprise users of the practices governing data collection.
+
+Additional layers of ethical diligence are essential in scenarios involving children or vulnerable populations. Obtaining informed consent becomes an intricate process that often involves guardians or caregivers entrusted with safeguarding these individuals' interests and privacy.
+
+The stakes become exceptionally high when eye blink detection technology finds its place in drowsiness detection within transportation systems. Here, the consequences of false positives or negatives can transcend the realm of inconvenience, potentially impacting individuals' lives and safety. The technology must not only be accurate but ethically sound in its application. This demands a careful balance between ensuring public safety and respecting individuals' rights.
+
+Navigating this complex ethical terrain also requires compliance with data protection regulations. In different regions, such as Europe with GDPR or the United States with HIPAA, stringent rules govern the collection and use of personal data, including blink data. Compliance is not just a legal obligation but an ethical imperative.
+
+In conclusion, the journey of advancing eye blink detection technology needs to be intertwined with a commitment to ethical principles and privacy protection. As researchers, developers, and practitioners push the boundaries of what is possible, they must also remain steadfast in upholding these principles, adopting best practices, and staying attuned to the evolving ethical standards and legal requirements in their respective domains.
+
+\section{Conclusion}
+
+In conclusion, the systems developed using eye blink sensors have the potential to impact our lives in the future. In this work we have tried to provide an overview of the existing research on eye blink sensor applications, exploring the advancements, methodologies, challenges, and potential for future directions. The emergence of IoT-based sytems development has opened new avenues for integrating blink-sensing technology into everyday life. The hardware techniques, such as Doppler sensors, EEG, and EOG, offer insightful physiological insights. In contrast, software algorithms like CAMshift, Contour Extraction, Median Blur Filtering, and Arc Extraction provide efficient methods for blink detection in video data.
+
+Their impact on multiple domains underscores the significance of systems using eye blink sensors. From enhancing human-computer interaction through natural and intuitive interfaces to providing insights into cognitive load, fatigue, and drowsiness detection, these sensors hold the potential to revolutionize various aspects of our lives. Moreover, their application in neuroscience, psychology research, user experience, advertising, gaming, virtual reality, and healthcare showcases blink sensor technology's versatility and growing importance.
+
+As research in this area continues to advance, addressing challenges related to accuracy, signal artefacts, and individual variability will be essential to ensure the reliability and effectiveness of eye blink sensing. Furthermore, ethical considerations and privacy concerns must be carefully navigated as these technologies become more integrated into daily activities.
+
+In summary, this survey underscores the promising potential of systems developed using eye blink sensors across diverse applications. The exploration of hardware and software techniques, along with the challenges and future directions highlighted, offers valuable insights for researchers, practitioners, and technology developers. With ongoing innovation, collaborative efforts, and careful ethical considerations, eye blink sensor technology holds the promise of transforming our interactions, understanding of cognitive processes, and overall quality of life.
+
+
+\renewcommand{\refname}{References \& Bibliography}
+\begin{thebibliography}{00}
+
+\bibitem{hci}
+Othmar Othmar Mwambe, Phan Xuan Tan and Eiji Kamioka. “Endogenous Eye Blinking Rate to Support Human–Automation Interaction for E-Learning Multimedia Content Specification“ January 2021
+
+\bibitem{blink rate from postural behaviour}
+Haehyun Lee, Taekbeom Yoo, Soomin Hyun, Donghyun Beck, Woojin Park. “Development of Eye Blink Rate Level Classification System Utilizing Sitting Postural Behavior Data“ October 2021
+
+\bibitem{fatigue}
+Arafat Islam, Naimur Rahaman \& Md Atiqur Rahman Ahad. “A Study on Tiredness Assessment by Using Eye Blink Detection”  July 2019
+
+\bibitem{drowsiness detection}
+Ulrika Svensson. “Blink behaviour based drowsiness detection– method development and validation“. Reprint from Linköping University, Dept. Biomedical Engineering, LiU-IMT-EX-04/369 Linköping 2004
+
+\bibitem{sleep apnoea}
+Philipp P. Caffiera, Udo Erdmannb, Peter Ullspergerb. The spontaneous eye-blink as sleepiness indicator in patients with obstructive sleep apnoea syndrome-a pilot study. November 2004
+
+\bibitem{iot}
+Tungali Manideep, Isha Upadhyay, Nikhil Aggarwal, Deepak Das, P Govardhan Reddy. “IoT Based Eye Blink Detection System”. 2022 2nd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)
+
+\bibitem{blink patterns}
+Carolyn Ranti, Warren Jones, Ami Klin \& Sarah Shultz. “Blink Rate Patterns Provide a Reliable Measure of Individual Engagement with Scene Content’. Available - www.nature.com/scientificreports
+
+\bibitem{gaming and VR}
+Joana Andoh, Brian DeBroff, Department of Ophthalmology and Visual Science, Yale School of Medicine, USA. “Assessment of spontaneous eye blink rate in online livestream video game players”. March 15, 2021
+\bibitem{Nih}
+Rui Chen, Zhichao Zhang, Ka Deng, Dahu Wang, Hongmin Ke, Li Cai, Chi-wei Chang, and Tingrui Pan, "Blink-sensing glasses: A flexible iontronic sensing wearable for continuous blink monitoring",  iScience. 2021 May 21; 24(5): 102399. doi: 10.1016/j.isci.2021.102399 PMCID: PMC8102906PMID: 33997684
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8102906/
+
+\bibitem{Eye blink using Doppler sensor}
+Kim, Y. “Detection of Eye Blinking Using Doppler Sensor With Principal Component Analysis”. IEEE Antennas and Wireless Propagation Letters, 14, 123–126. 2015.
+
+\bibitem{doppler2}
+Chihiro Tamba, Hirotaka Hayashi, Tomoaki Ohtsuki. “Improvement of Blink Detection Using a Doppler Sensor Based on CFAR Processing“  978-1-5090-1328-9/16/31.00 ©2016 IEEE
+
+\bibitem{IoT based blink detection}
+Tungali Manideep, Isha Upadhyay, Nikhil Aggarwal, P Govardhan Reddy, Deepak Das. “IoT Based Eye Blink Detection System”. 2nd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE), 2022
+
+
+\bibitem{EEG2}
+M. A. Sovierzoski, F. I. M. Argoud and F. M. de Azevedo. “Identifying eye blinks in EEG signal analysis”. 2008 International Conference on Information Technology and Applications in Biomedicine, Shenzhen, China, 2008, pp. 406-409, doi: 10.1109/ITAB.2008.4570605.
+
+\bibitem{EEG}
+Joseph W. Matiko, Stephen Beeby and John Tudor. “Real Time Eye Blink Noise Removal from EEG signals using Morphological Component Analysis”. 35th Annual International Conference of the IEEE EMBS
+Osaka, Japan, July 2013
+
+\bibitem{EOG}
+Moon, Kee S., Sung Q. Lee, John S. Kang, Andrew Hnat, and Deepa B. Karen. 2023. “A Wireless Electrooculogram (EOG) Wearable Using Conductive Fiber Electrode”.  Electronics 12, no. 3: 571. https://doi.org/10.3390/electronics12030571
+
+\bibitem{eye blink duration by regression}
+Chin-Shun Hsieh , and Cheng-Chi Tai. “A Calculation for Complex Eye-Blink Duration by Regression” IEEE 2nd International Symposium on Next-Generation Electronics (ISNE) -February 25-26 2013 , Kaohsiung , Taiwan
+
+\bibitem{Microsoft}
+Dementyev A., Holz C. DualBlink, " A wearable device to continuously detect, track, and actuate blinking for alleviating dry eyes and computer vision syndrome". Proc. ACM Interact. Mob. Wearable Ubiquitous Technol. 2017;1:1–19. doi: 10.1145/3053330. 
+
+\bibitem{meanShift}
+Wikipedia contributors. “Mean Shift.” Wikipedia, July 2023, en.wikipedia.org/wiki/Mean\_shift.
+
+
+
+
+\bibitem{ADHD}
+Y. Groen, N. A. Borger, J. Koerts,  J. Thome,  O. Tucha. “Blink rate and blink timing in children with ADHD and the influence of stimulant medication”. September 2015, J Neural Transm (Vienna). 2017; 124(Suppl 1): 27–38. Published online 2015 Oct 15. doi: 10.1007/s00702-015-1457-6 PMCID: PMC5281678PMID: 26471801
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5281678/
+\bibitem{}
+Asanka D. Dharmawansa, Yoshimi Fukumura, Hideyuki Kanematsu, ToshiroKobayashi, Nobuyuki Ogawa, Dana M. Barry. “Introducing eye blink of a student to the virtual world and evaluating the affection of the eye blinking during the e-Learning”. 18th International Conference on Knowledge-Based and Intelligent Information \& Engineering Systems - KES2014
+
+\bibitem{}
+Gahangir Hossain, Mukhtar Bello, Musab Faiyazuddin. “Blink Rate Variability as a Measure of Computer Vision Syndrome“. Available - https://doi.org/10.21203/rs.3.rs-1550893/v1 April 28th, 2022
+
+
+
+\bibitem{}
+Christopher Beach, Student Member, IEEE, Nazmul Karim, and Alexander J. Casson, Senior Member, IEEE. A Graphene-Based Sleep Mask for Comfortable Wearable Eye Tracking.
+\bibitem{}
+Atish Udayashankar, Amit R Kowshik, Chandramouli S, H S Prashanth. “ASSISTANCE FOR THE PARALYZED USING EYE BLINK DETECTION”.  2012 Fourth International Conference on Digital Home
+\bibitem{}
+Colleen Nelson, Nikitha S Badas, Saritha I G, Thejaswini S. Robotic Wheelchair Using Eye Blink Sensors and Accelerometer Provided with Home Appliance Control. Colleen Nelson et al Int. Journal of Engineering Research and Applications ISSN : 2248-9622, Vol. 4, Issue 5( Version 7), May 2014, pp.129-134
+\bibitem{}
+Handan Inonu Koseoglu, Asiye Kanbay, Huseyin Ortak, Remzi Karadag, Osman Demir, Selim Demir, Alper Gunes, Sibel Doruk. Effect of obstructive sleep apnea syndrome on corneal thickness. August 2015
+\bibitem{}
+Ioana Bacivarov, Student Member, IEEE, Mircea Ionita, Student Member, IEEE and Peter Corcoran, Senior Member, IEEE. “Statistical Models of Appearance for Eye Tracking and Eye-Blink Detection and Measurement” IEEE Transactions on Consumer Electronics, Vol. 54, No. 3, AUGUST 2008
+\bibitem{}
+Aleksandra Królak, and Paweł Strumiłło, Member, IEEE, Institute of Electronics, Technical University, Lodz, Poland. “Vision-Based Eye Blink Monitoring System for Human-Computer Interfacing”. HSI 2008
+\bibitem{}
+Jennifer M. Cori, PhD, Sophie Turner, BSc, Justine Westlake, BA/BAppSci, Aqsa Naqvi, BSc Suzanne Ftouni, PhD Vanessa Wilkinson, PhD, Andrew Vakulin, PhD, Fergal J. O'Donoghue, PhD, Mark E. Howard, PhD. “Eye blink parameters to indicate drowsiness during naturalistic driving in participants with obstructive sleep apnea: A pilot study“ Journal of the National Sleep Foundation. journal homepage: sleephealthjournal.org
+\bibitem{}
+Rui Chen, Zhichao Zhang, Ka Deng, Li Cai, Chi-wei Chang, Tingrui Pan. “Blink-sensing glasses: A flexible iontronic sensing wearable for continuous blink monitoring”. Chen et al., iScience 24, 102399 May 21, 2021 a 2021
+\bibitem{}
+Dr. H S Prasantha, Meghana Prakash, Nidhishree Hegde, Niveda Giridharan, Rakshitha K P. “EYE BLINK CONTROL OF APPLIANCES FOR PARALYTIC AND ELDERLY”. International Journal of Creative Research Thoughts (IJCRT) ISSN 2320:2382
+
+
+
+\end{thebibliography}
+
+
+\end{document}
